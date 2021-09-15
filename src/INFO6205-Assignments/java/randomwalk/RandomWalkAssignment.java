@@ -91,8 +91,8 @@ public class RandomWalkAssignment {
             int m = (int)(Math.random()*100);
             int n = (int)(Math.random()*100) + 10;
             System.out.println("No "+ i );
-            double meanDistance = randomWalkMulti(m, n * 100000);
-            System.out.println(m + " steps: " + meanDistance + " over " + n * 100000 + " experiments");
+            double meanDistance = randomWalkMulti(m, n);
+            System.out.println(m + " steps: " + meanDistance + " over " + n + " experiments");
             System.out.println("------------------------------------------------------------");
 
         }
