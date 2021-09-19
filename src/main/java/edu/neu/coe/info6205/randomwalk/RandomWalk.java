@@ -4,6 +4,7 @@
 
 package edu.neu.coe.info6205.randomwalk;
 
+import java.sql.SQLOutput;
 import java.util.Random;
 
 public class RandomWalk {
@@ -20,6 +21,9 @@ public class RandomWalk {
      * @param dy the distance he moves in the y direction
      */
     private void move(int dx, int dy) {
+        x += dx;
+        y += dy;
+        //System.out.println("curr positon: "+ x +", "+ y);
         // TO BE IMPLEMENTED
     }
 
@@ -28,7 +32,11 @@ public class RandomWalk {
      *
      * @param m the number of steps the drunkard takes
      */
-    private void randomWalk(int m) {
+    public void randomWalk(int m) {
+        while(m > 0){
+            randomMove();
+            m--;
+        }
         // TO BE IMPLEMENTED
     }
 
@@ -36,7 +44,7 @@ public class RandomWalk {
      * Private method to generate a random move according to the rules of the situation.
      * That's to say, moves can be (+-1, 0) or (0, +-1).
      */
-    private void randomMove() {
+    public void randomMove() {
         boolean ns = random.nextBoolean();
         int step = random.nextBoolean() ? 1 : -1;
         move(ns ? step : 0, ns ? 0 : step);
@@ -49,7 +57,7 @@ public class RandomWalk {
      */
     public double distance() {
         // TO BE IMPLEMENTED
-        return 0;
+        return Math.sqrt(x * x + y * y);
     }
 
     /**
@@ -64,19 +72,37 @@ public class RandomWalk {
         for (int i = 0; i < n; i++) {
             RandomWalk walk = new RandomWalk();
             walk.randomWalk(m);
+            //System.out.println("no: " +i+" result : " + walk.distance());
             totalDistance = totalDistance + walk.distance();
         }
         return totalDistance / n;
     }
 
     public static void main(String[] args) {
-        if (args.length == 0)
+        /*if (args.length == 0)
             throw new RuntimeException("Syntax: RandomWalk steps [experiments]");
         int m = Integer.parseInt(args[0]);
-        int n = 30;
-        if (args.length > 1) n = Integer.parseInt(args[1]);
-        double meanDistance = randomWalkMulti(m, n);
-        System.out.println(m + " steps: " + meanDistance + " over " + n + " experiments");
+        int m = 20;
+        int n = 6;
+        if (args.length > 1) n = Integer.parseInt(args[1]);*/
+
+        for(int i = 1; i <= 6; i++){
+            int m = (int)(Math.random()*100);
+            int n = (int)(Math.random()*100) + 10;
+            System.out.println("No "+ i );
+            double meanDistance = randomWalkMulti(m, n);
+            System.out.println(m + " steps: " + meanDistance + " over " + n + " experiments");
+            //System.out.println(Math.sqrt(m));
+            System.out.println("------------------------------------------------------------");
+
+        }
+        /*while(n > 0){
+
+            System.out.println();
+            double meanDistance = randomWalkMulti(m, n);
+            System.out.println(m + " steps: " + meanDistance + " over " + n + " experiments");
+        }*/
+
     }
 
 }
