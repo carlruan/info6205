@@ -100,6 +100,7 @@ public class InsertionSortTest {
         assertTrue(helper.sorted(ys));
         sorter.postProcess(ys);
         final int compares = (int) statPack.getStatistics(InstrumentedHelper.COMPARES).mean();
+        System.out.println("compares: " + compares);
         // NOTE: these are suppoed to match within about 12%.
         // Since we set a specific seed, this should always succeed.
         // If we use true random seed and this test fails, just increase the delta a little.

@@ -2,12 +2,14 @@
  * Copyright (c) 2017. Phasmid Software
  */
 
-package edu.neu.coe.info6205.randomwalk;
+package edu.neu.coe.info6205.assignments.randomwalk;
+
+import edu.neu.coe.info6205.randomwalk.RandomWalk;
 
 import java.sql.SQLOutput;
 import java.util.Random;
 
-public class RandomWalk {
+public class RandomWalkAssignment {
 
     private int x = 0;
     private int y = 0;
@@ -32,7 +34,7 @@ public class RandomWalk {
      *
      * @param m the number of steps the drunkard takes
      */
-    public void randomWalk(int m) {
+    private void randomWalk(int m) {
         while(m > 0){
             randomMove();
             m--;
@@ -44,7 +46,7 @@ public class RandomWalk {
      * Private method to generate a random move according to the rules of the situation.
      * That's to say, moves can be (+-1, 0) or (0, +-1).
      */
-    public void randomMove() {
+    private void randomMove() {
         boolean ns = random.nextBoolean();
         int step = random.nextBoolean() ? 1 : -1;
         move(ns ? step : 0, ns ? 0 : step);
@@ -78,6 +80,7 @@ public class RandomWalk {
         return totalDistance / n;
     }
 
+
     public static void main(String[] args) {
         /*if (args.length == 0)
             throw new RuntimeException("Syntax: RandomWalk steps [experiments]");
@@ -90,9 +93,8 @@ public class RandomWalk {
             int m = (int)(Math.random()*100);
             int n = (int)(Math.random()*100) + 10;
             System.out.println("No "+ i );
-            double meanDistance = randomWalkMulti(m, n);
-            System.out.println(m + " steps: " + meanDistance + " over " + n + " experiments");
-            //System.out.println(Math.sqrt(m));
+            double meanDistance = randomWalkMulti(m, n * 100000);
+            System.out.println(m + " steps: " + meanDistance + " over " + n * 100000 + " experiments");
             System.out.println("------------------------------------------------------------");
 
         }

@@ -1,15 +1,12 @@
 /*
   (c) Copyright 2018, 2019 Phasmid Software
  */
-package edu.neu.coe.info6205.sort.elementary;
+package edu.neu.coe.info6205.assignments.benchmark;
 
 import edu.neu.coe.info6205.sort.BaseHelper;
 import edu.neu.coe.info6205.sort.Helper;
 import edu.neu.coe.info6205.sort.SortWithHelper;
 import edu.neu.coe.info6205.util.Config;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class InsertionSort<X extends Comparable<X>> extends SortWithHelper<X> {
 

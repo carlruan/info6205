@@ -52,13 +52,11 @@ public class Newton {
     public static void main(String[] args) {
 
         // Build the Newton's Approximation problem to be solved: cos(x) = x
-        Newton newton = new Newton("cos(x) - x", (double x) -> Math.cos(x) - x, (double x) -> -Math.sin(x) - 1);
-
+        Newton newton = new Newton("sin(x) + x", (double x) -> Math.sin(x) + x, (double x) -> Math.cos(x) + 1);
         // Solve the problem starting with a value of x = 1;
         // requiring a precision of 10^-7;
         // and giving up after 200 tries.
         Either<String, Double> result = newton.solve(1.0, 200, 1E-7);
-
         // Process the result
         result.apply(
                 // Admit defeat, explaining why on syserr...
@@ -67,6 +65,20 @@ public class Newton {
                     // Publish the happy news.
                     System.out.println("Good news! " + newton.equation + " was solved: " + aDouble);
                 });
+
+//        Newton newton = new Newton("cos(x) - x", (double x) -> Math.cos(x) - x, (double x) -> -Math.sin(x) - 1);
+//        // Solve the problem starting with a value of x = 1;
+//        // requiring a precision of 10^-7;
+//        // and giving up after 200 tries.
+//        Either<String, Double> result = newton.solve(1.0, 200, 1E-7);
+//        // Process the result
+//        result.apply(
+//                // Admit defeat, explaining why on syserr...
+//                System.err::println,
+//                aDouble -> {
+//                    // Publish the happy news.
+//                    System.out.println("Good news! " + newton.equation + " was solved: " + aDouble);
+//                });
     }
 
     private final String equation;

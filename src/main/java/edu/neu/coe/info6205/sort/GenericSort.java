@@ -38,7 +38,7 @@ public interface GenericSort<X> {
      * @param xs the array to be sorted.
      */
     default void mutatingSort(X[] xs) {
-        sort(xs, false);
+        sort(xs, true);
     }
 
     /**

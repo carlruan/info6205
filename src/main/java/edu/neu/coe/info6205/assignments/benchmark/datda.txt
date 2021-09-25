@@ -1,0 +1,62 @@
+400 numbers in Array-------------------------------------------------------------------------------------------------
+2021-09-25 10:04:51 INFO  Benchmark_Timer - Begin run: random test: with 100 runs
+0.58
+2021-09-25 10:04:52 INFO  Benchmark_Timer - Begin run: orderd test: with 100 runs
+0.63
+2021-09-25 10:04:52 INFO  Benchmark_Timer - Begin run: partially orderd test: with 100 runs
+0.69
+2021-09-25 10:04:52 INFO  Benchmark_Timer - Begin run: reverse test: with 100 runs
+0.86
+
+800 numbers in Array-------------------------------------------------------------------------------------------------
+2021-09-25 10:04:52 INFO  Benchmark_Timer - Begin run: random test: with 100 runs
+1.23
+2021-09-25 10:04:52 INFO  Benchmark_Timer - Begin run: orderd test: with 100 runs
+0.32
+2021-09-25 10:04:52 INFO  Benchmark_Timer - Begin run: partially orderd test: with 100 runs
+0.96
+2021-09-25 10:04:52 INFO  Benchmark_Timer - Begin run: reverse test: with 100 runs
+2.04
+
+1600 numbers in Array-------------------------------------------------------------------------------------------------
+2021-09-25 10:04:52 INFO  Benchmark_Timer - Begin run: random test: with 100 runs
+3.67
+2021-09-25 10:04:53 INFO  Benchmark_Timer - Begin run: orderd test: with 100 runs
+0.35
+2021-09-25 10:04:53 INFO  Benchmark_Timer - Begin run: partially orderd test: with 100 runs
+2.78
+2021-09-25 10:04:53 INFO  Benchmark_Timer - Begin run: reverse test: with 100 runs
+7.06
+
+3200 numbers in Array-------------------------------------------------------------------------------------------------
+2021-09-25 10:04:54 INFO  Benchmark_Timer - Begin run: random test: with 100 runs
+13.77
+2021-09-25 10:04:56 INFO  Benchmark_Timer - Begin run: orderd test: with 100 runs
+0.3
+2021-09-25 10:04:56 INFO  Benchmark_Timer - Begin run: partially orderd test: with 100 runs
+10.41
+2021-09-25 10:04:57 INFO  Benchmark_Timer - Begin run: reverse test: with 100 runs
+27.13
+
+6400 numbers in Array-------------------------------------------------------------------------------------------------
+2021-09-25 10:05:01 INFO  Benchmark_Timer - Begin run: random test: with 100 runs
+53.22
+2021-09-25 10:05:07 INFO  Benchmark_Timer - Begin run: orderd test: with 100 runs
+0.35
+2021-09-25 10:05:07 INFO  Benchmark_Timer - Begin run: partially orderd test: with 100 runs
+40.01
+2021-09-25 10:05:12 INFO  Benchmark_Timer - Begin run: reverse test: with 100 runs
+107.4
+
+12800 numbers in Array-------------------------------------------------------------------------------------------------
+2021-09-25 10:05:26 INFO  Benchmark_Timer - Begin run: random test: with 100 runs
+214.59
+2021-09-25 10:05:50 INFO  Benchmark_Timer - Begin run: orderd test: with 100 runs
+0.42
+2021-09-25 10:05:52 INFO  Benchmark_Timer - Begin run: partially orderd test: with 100 runs
+161.17
+2021-09-25 10:06:14 INFO  Benchmark_Timer - Begin run: reverse test: with 100 runs
+427.66
+
+Process finished with exit code 0
+ 
