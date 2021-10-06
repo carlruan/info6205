@@ -5,7 +5,9 @@
  * Modifications:
  * Copyright (c) 2017. Phasmid Software
  */
-package edu.neu.coe.info6205.union_find;
+package edu.neu.coe.info6205.assignments.WQUPC;
+
+import edu.neu.coe.info6205.union_find.UF;
 
 import java.util.Arrays;
 
