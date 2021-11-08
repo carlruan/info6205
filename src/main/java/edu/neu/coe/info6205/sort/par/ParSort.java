@@ -2,6 +2,9 @@ package edu.neu.coe.info6205.sort.par;
 
 import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ForkJoinPool;
 
 /**
  * This code has been fleshed out by Ziyao Qiao. Thanks very much.
@@ -9,9 +12,10 @@ import java.util.concurrent.CompletableFuture;
  */
 class ParSort {
 
-    public static int cutoff = 1000;
 
-    public static void sort(int[] array, int from, int to) {
+    private int cutoff, thread;
+
+    public void sort(int[] array, int from, int to) {
         if (to - from < cutoff) Arrays.sort(array, from, to);
         else {
             // FIXME next few lines should be removed from public repo.
@@ -37,12 +41,46 @@ class ParSort {
             });
 
             parsort.whenComplete((result, throwable) -> System.arraycopy(result, 0, array, from, result.length));
-//            System.out.println("# threads: "+ ForkJoinPool.commonPool().getRunningThreadCount());
+            //System.out.println("# threads: "+ ForkJoinPool.commonPool().getRunningThreadCount());
             parsort.join();
         }
     }
 
-    private static CompletableFuture<int[]> parsort(int[] array, int from, int to) {
+
+    ForkJoinPool mypool;
+
+    public void setCutoff(int cutoff){
+        this.cutoff = cutoff;
+    }
+
+
+
+    public int getCutoff(){
+        return this.cutoff;
+    }
+
+    public int getThread(){
+        return this.thread;
+    }
+
+    public void setThread(int thread){
+        this.thread = thread;
+    }
+
+    public void setMypool(){
+        this.mypool = new ForkJoinPool(this.thread);
+    }
+
+    public ParSort(int thread){
+
+        this.thread = thread;
+        setMypool();
+
+    }
+
+    private CompletableFuture<int[]> parsort(int[] array, int from, int to) {
+
+        //ExecutorService service = Executors.newFixedThreadPool(128);
         return CompletableFuture.supplyAsync(
                 () -> {
                     int[] result = new int[to - from];
@@ -50,7 +88,8 @@ class ParSort {
                     System.arraycopy(array, from, result, 0, result.length);
                     sort(result, 0, to - from);
                     return result;
-                }
+                },
+                mypool
         );
     }
 }
