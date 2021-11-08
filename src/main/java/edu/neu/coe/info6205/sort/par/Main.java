@@ -23,11 +23,11 @@ public class Main {
         processArgs(args);
         System.out.println("Degree of parallelism: " + ForkJoinPool.getCommonPoolParallelism());
         Random random = new Random();
-        for (int n = 1 << 21; n <= 1 << 24; n *= 2) {
+        for (int n = 1 << 24; n <= 1 << 24; n *= 2) {
             int[] array = new int[n];
             for (int thread = 2; thread <= 8; thread *= 2) {
                 ParSort ps = new ParSort(thread);
-                for (int initCutOff = 1 << 13; initCutOff <= 1 << 18; initCutOff *= 2) {
+                for (int initCutOff = 1 << 13; initCutOff <= 1 << 20; initCutOff *= 2) {
 
                     ps.setCutoff(initCutOff);
                     // for (int i = 0; i < array.length; i++) array[i] = random.nextInt(10000000);

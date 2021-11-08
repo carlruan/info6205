@@ -1,6 +1,8 @@
-cutoff：8192 current threads: 8 10times Time:11667ms
-cutoff：16384 current threads: 8 10times Time:6181ms
-cutoff：32768 current threads: 8 10times Time:5634ms
-cutoff：65536 current threads: 8 10times Time:5435ms
-cutoff：131072 current threads: 8 10times Time:4678ms
-cutoff：262144 current threads: 8 10times Time:4430ms
+cutoff：8192 current threads: 8 10times Time:9043ms
+cutoff：16384 current threads: 8 10times Time:7365ms
+cutoff：32768 current threads: 8 10times Time:5723ms
+cutoff：65536 current threads: 8 10times Time:5505ms
+cutoff：131072 current threads: 8 10times Time:4727ms
+cutoff：262144 current threads: 8 10times Time:4218ms
+cutoff：524288 current threads: 8 10times Time:4083ms
+cutoff：1048576 current threads: 8 10times Time:4477ms

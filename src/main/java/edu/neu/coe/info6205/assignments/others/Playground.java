@@ -4,61 +4,75 @@ import java.util.Arrays;
 
 public class Playground {
 
+    public static void merge(int[] a, int[] aux, int l, int m, int r){
+        for(int i = l; i <= r; i++){
+            aux[i] = a[i];
+        }
+        int i = l, j = m + 1;
+        for(int p = l; p <= r; p++){
+            if(i > m){
+                a[p] = aux[j++];
+            }else if(j > r){
+                a[p] = aux[i++];
+            }else if(aux[j] < aux[i]){
+                a[p] = aux[j++];
+            }else{
+                a[p] = aux[i++];
+            }
+        }
+    }
 
-    public static void sort(int[] ind, String[] ss, String[] t){
-        for(int i = 0; i < ind.length; i++){
-            for(int j = i + 1; j < ind.length; j++){
-                if(ind[i] > ind[j]){
-                    int tempi = ind[i];
-                    ind[i] = ind[j];
-                    ind[j] = tempi;
+    public static void sort(int[] a){
+        int[] aux = new int[a.length];
+        int n = a.length;
+        for(int len = 1; len < n; len *= 2){
+            for(int lo = 0; lo < n - len; lo += len * 2){
+                int mid = lo + len - 1;
+                int hi = Math.min(n - 1, lo + 2 * len - 1);
+                merge(a, aux, lo, mid, hi);
+            }
+        }
+    }
 
-                    String temps = ss[i];
-                    ss[i] = ss[j];
-                    ss[j] = temps;
-
-                    String tempt = t[i];
-                    t[i] = t[j];
-                    t[j] = tempt;
+    public static int partition(int[] a, int l, int r){
+        int i = l, j = r + 1, v = a[l];
+        while(true){
+            while (a[++i] < v){
+                if(i == r){
+                    break;
                 }
             }
+            while(a[--j] > v){
+
+                if(j == l){
+                    break;
+                }
+            }
+            if(i >= j){
+                break;
+            }
+            swap(a, i, j);
         }
+        swap(a, l, j);
+        return j;
     }
 
-
-    public static String findReplaceString(String s, int[] indices, String[] sources, String[] targets) {
-        int n = indices.length;
-        sort(indices, sources, targets);
-        StringBuilder sb = new StringBuilder();
-        int p = 0;
-        for(int i = 0; i < n; i++){
-            sb.append(s.substring(p, indices[i]));
-            p = indices[i];
-            int curP = indices[i];
-            int len = sources[i].length();
-            if(i + 1 < n && i + len - 1 >= indices[i + 1]){
-                i += 1;
-                continue;
-
-            }
-            if(curP + len <= s.length() && s.substring(curP, curP + len).equals(sources[i])){
-                sb.append(targets[i]);
-                p+= len;
-            }
+    public static void quick(int[] a, int l, int r){
+        if(l >= r){
+            return;
         }
-        if(p < s.length()){
-            sb.append(s.substring(p, s.length()));
-        }
-        return sb.toString();
+        int j =partition(a, l, r);
+        quick(a, l, j - 1);
+        quick(a, j + 1, r);
     }
 
-//    "vmokgggqzp"
-//[3,5,1]
-//["kg","ggq","mo"]
-//["s","so","bfr"]
+    public static void swap(int[] a, int i, int j){
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
 
     public static void main(String[] args) {
-        System.out.println(findReplaceString("vmokgggqzp", new int[]{3, 5, 1}, new String[]{"kg","ggq","mo"}, new String[]{"s","so","bfr"}));
-
+        System.out.println(1 << 21);
     }
 }
