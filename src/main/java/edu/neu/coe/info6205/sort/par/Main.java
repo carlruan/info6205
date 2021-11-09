@@ -23,7 +23,7 @@ public class Main {
         processArgs(args);
         System.out.println("Degree of parallelism: " + ForkJoinPool.getCommonPoolParallelism());
         Random random = new Random();
-        for (int n = 1 << 24; n <= 1 << 24; n *= 2) {
+        for (int n = 1 << 21; n <= 1 << 24; n *= 2) {
             int[] array = new int[n];
             for (int thread = 2; thread <= 8; thread *= 2) {
                 ParSort ps = new ParSort(thread);
