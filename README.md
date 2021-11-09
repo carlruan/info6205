@@ -10,4 +10,4 @@ Changes are also uploaded in the main src.
 
 # Assignment 5
 Report dir: https://github.com/carlruan/info6205/tree/Fall2021/src/main/java/edu/neu/coe/info6205/assignments/ParraelSorting
-Changes of code are uploaded in the main src.
+Changes of code are uploaded in the main src: https://github.com/carlruan/info6205/tree/Fall2021/src/main/java/edu/neu/coe/info6205/sort/par
